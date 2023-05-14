@@ -1,3 +1,7 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+
 <h2>Log in</h2>
 
 <%= form_with model: @user, url: user_session_path do |f| %>
