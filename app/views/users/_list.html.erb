@@ -1,26 +1,24 @@
-      <div class="container px-5 px-sm-0">
-        <div class="row">
-          <div class="col-md-3">
+
             <h2>User info</h2>
-            <%= image_tag @user.get_profile_image(100,100) %>
+            <%= image_tag user.get_profile_image(100,100) %>
             <table class="table">
               <tbody>
                 <tr></tr>
                   <tr>
                     <th>name</th>
-                    <th><%= @user.name %></th>
+                    <th><%= user.name %></th>
                   </tr>
                   <tr>
                     <th>introdution</th>
-                    <th><%= @user.introduction %></th>
+                    <th><%= user.introduction %></th>
                   </tr>
               </tbody>
             </table>
             <div class="row">
-              <%= if @user == current_user %>
-                <%= link_to edit_user_path, class: "btn btn-outline-secondary btn-block edit_user_id" do %>
+
+              <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
                   <i class="fas fa-user-cog"></i>
-                <% end %>
+
               <% end %>
             </div>
 
@@ -46,26 +44,10 @@
     </div>
 
     <div class="form-group">
-      <%= link_to 'Create Book', new_book_path, class="btn btn-secondary" %>
-    </div>
+      <%= link_to 'Create Book', new_book_path, class:"btn btn-success btn-secondary" %>
 
     <% end %>
-
-    <div class="col-md-8 offset-md-1">
-      <h2>Books</h2>
-      <table class="table table-hover table-inverse">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Title</th>
-            <th>Opinion</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-        <tbody> </tbody>
-      </table>
-
     </div>
-   </div>
-  </div>
-</div>
+
+
+
