@@ -19,12 +19,18 @@
      <tbody>
 
         <tr>
-          <td><%= image_tag @user.get_profile_image(100,100) %><%= link_to @user.name, user_path(current_user.id) %></td>
-          <td><%= link_to @book.title, book_path(current_user.id) %></td>
+          <td><%= link_to user_path(current_user.id) do %>
+                <%= image_tag @user.get_profile_image(100,100) %></br>
+
+                <%= @user.name %>
+                <% end %>
+                </td>
+          <td><%= link_to @book.title, book_path(@book.id) %></td>
           <td><%= @book.body %></td>
           <td><%= link_to 'Edit', edit_book_path(@book.id), class: "btn btn-sm btn-success" %></td>
-          <td><%= link_to 'Destroy', book_path(@book.id), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "Are you sure？" %></td>
-
+          <% if current_user.id == @book.user_id %>
+          <td><%= link_to 'Destroy', book_path(@book.id), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に消しますか？" %></td>
+          <% end %>
         </tr>
 
      </tbody>

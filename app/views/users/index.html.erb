@@ -25,9 +25,12 @@
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <td><%= image_tag @user.get_profile_image(100,100) %></td> <!--プロフィール画像-->
+          <td><%= link_to user_path(user.id) do %>
+                <%= image_tag user.get_profile_image(100,100) %>
+                <% end %>
+                </td><!--プロフィール画像-->
           <td><%= user.name %></td><!--ユーザー名-->
-          <td><%= link_to 'show', user_path(user.id) %></td> <!--showボタン-->
+          <td><%= link_to 'Show', user_path(user.id) %></td> <!--showボタン-->
         </tr>
       <% end %>
     </tbody>
