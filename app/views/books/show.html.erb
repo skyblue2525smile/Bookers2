@@ -8,7 +8,7 @@
         <li><%= message %></li>
         <% end %>
       </ul>
-    <% end %>
+     <% end %>
 <%= render 'users/list', user: @user, book: @book_new %>
 </div>
 
@@ -30,11 +30,11 @@
           <td><%= @book.body %></td>
 
           <% if current_user.id == @book.user_id %>
-          <td><%= link_to 'Edit', edit_book_path(@book.id), class: "btn btn-sm btn-success" %></td>
+          <td><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-sm btn-success" %></td>
           <% end %>
 
           <% if current_user.id == @book.user_id %>
-          <td><%= link_to 'Destroy', book_path(@book.id), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に消しますか？" %></td>
+          <td><%= link_to "Destroy", book_path(@book.id), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に消しますか？" %></td>
           <% end %>
 
         </tr>

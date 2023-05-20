@@ -8,7 +8,7 @@
         <li><%= message %></li>
         <% end %>
       </ul>
-    <% end %>
+     <% end %>
 <%= render 'users/list', user: @user, book: @book %>
 </div>
 
@@ -26,12 +26,11 @@
         <tbody>
         <% @books.each do |books| %>
          <tr>
-            <td><%= link_to user_path(@user.id) do %>
-                <%= image_tag @user.get_profile_image(100,100) %></br>
-                <%= @user.name %>
+            <td><%= link_to user_path(books.user.id) do %>
+                <%= image_tag books.user.get_profile_image(100,100) %></br>
                 <% end %>
                 </td>
-          <td><%= link_to books.title, book_path(@user.id) %></td>
+          <td><%= link_to books.title, book_path(books.id) %></td>
           <td><%= books.body %></td>
          </tr>
          <% end %>
