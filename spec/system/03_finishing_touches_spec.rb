@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe '[STEP3] 仕上げのテスト' do
-  let(:user) { create(:user) }
+  let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }
   let!(:book) { create(:book, user: user) }
   let!(:other_book) { create(:book, user: other_user) }
